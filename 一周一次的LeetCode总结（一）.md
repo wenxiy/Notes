@@ -39,7 +39,7 @@
     ```java
     if(head==null){
         return head;
-}
+    }
     ListNOde fast=head;
     ListNode slow=head;
     while(fast!=null&&fast.next!=null){    
@@ -59,5 +59,10 @@
     }
     return fast;
     ```
-    
-    
+
+* 分割链表
+
+  * 题目重述：给定一个链表和一个x，将链表元素小于或等于x的放在x的左边，大于x的放在x的右边。
+  * 难点：移动链表，遍历链表
+  * 步骤：
+  * 解决办法：
