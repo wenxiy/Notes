@@ -42,7 +42,7 @@
     }
     ListNOde fast=head;
     ListNode slow=head;
-    while(fast!=null&&fast.next!=null){    
+    while(fast!=null){    
         fast=fast.next.next;
     	slow=slow.next;
         if(fast==slow){
@@ -59,10 +59,38 @@
     }
     return fast;
     ```
+    
+    后面的拓展：如果要没有环要选择返回null
+    
+    ```java
+    //如果没有环我们需要改变一下第一个while里的if的条件
+    while(fas!=null){
+    	if(fast==null||fast.next==null) return null;
+    	···
+    	···
+    }
+    ···
+    ···
+    ```
+    
+    
 
 * 分割链表
 
   * 题目重述：给定一个链表和一个x，将链表元素小于或等于x的放在x的左边，大于x的放在x的右边。
+
   * 难点：移动链表，遍历链表
-  * 步骤：
-  * 解决办法：
+
+  * 步骤：见下图头插法
+
+  * 解决办法：链表的头插法
+
+    （头插法这里我想了很久，为了把这个事情说清楚我们做一个步骤图来说明一下
+
+    ![](https://s1.ax1x.com/2020/07/17/Uyry28.png)
+
+    ```java
+    
+    ```
+
+    
