@@ -25,8 +25,8 @@ git --version
 
 ```shell
 git config --global --list #这语句就是看你有没有配置过git如果有的话不能推代码的话建取消
-git config --global --unset user.name#取消name设置
-git config --global --unset user.email#取消email设置
+git config --global --unset user.name #取消name设置
+git config --global --unset user.email #取消email设置
 git config --global user.name "username" #注意！冒号不要丢，里面是你的用户名
 git config --global user.email youemail@163.com #注意！这里没有冒号！里面是你的游戏
 ```
@@ -39,9 +39,9 @@ git config --global user.email youemail@163.com #注意！这里没有冒号！�
 
 ​	传统的FTP、Telnet是再网络中明文传送数据、用户帐号和密码，很容易受到中间人攻击。
 
-​	SSH是目前较可靠，专为远程登录会话和其他网络服务提供安全性的协议。利用SSH协议可以有效防止远程管理过程中的信息泄露问题。通过**SSH**可以对所有传输的数据进行加密，也能够防止DNS欺骗和IP欺骗。
+​	SSH是目前较可靠，专为远程登录会话和其他网络服务提供安全jiux性的协议。利用SSH协议可以有效防止远程管理过程中的信息泄露问题。通过**SSH**可以对所有传输的数据进行加密，也能够防止DNS欺骗和IP欺骗。
 
-所以第一步就是在本地生成一个ssh 
+​	所以第一步就是在本地生成一个ssh 
 
 ```shell
     $ ssh-keygen -t rsa -C "youemail@yeah.net"
@@ -49,9 +49,30 @@ git config --global user.email youemail@163.com #注意！这里没有冒号！�
 
 这里你只需要连按三个enter就可以完成，看到一个很奇怪的图
 
- ![](https://imgchr.com/i/06RR6U)
+![](https://s1.ax1x.com/2020/10/10/06RR6U.png)
 
 那么恭喜你，你已经在本地的ssh文件夹下生成了这个ssh，但是你会发现你找不到这个ssh文件夹，因为他是隐藏起来的。所以你需要去用命令行去打开这个地方，并且去看他的地址和公匙内容，把这个内容放到github的地方上，这样就完成了ssh配置，就可以愉快的推代码了！
+
+​	第二步我们需要去讲如何查看自己的ssh文件夹中的内容。首先我们在命令行中输入：
+
+```shell
+cd ~/.ssh #进入到git配置ssh的目录
+dir #查看此目录下的文件有哪些
+```
+
+![](https://s1.ax1x.com/2020/10/11/0ck0u6.png)
+
+如果出现这个代表已经生产了ssh都成功了，这里的rsa.pub是代表的是公匙，没有pub的是私匙。一定不要告诉别人私匙哦！
+
+​	第三步我们需要去在本地打开这个文件，当然是需要去vim去打开啦！（这里我就不说什么是vim了）
+
+但是我们还是要检查一个事情
+
+```
+vim id_rsa.pub # 如果你没有给管理员权限，记得在前面加sudo
+```
+
+这样我们就打开了这个
 
 ### 关于git代理的那些事
 
@@ -61,7 +82,7 @@ git config --global user.email youemail@163.com #注意！这里没有冒号！�
 
 ### 什么？居然有人用客户端来推代码？这不是歧视命令行？~~不会吧不会吧，2102年了还有人歧视客户端？~~
 
-所以我们这一节就是要将一些开发所使用的客户端：Github Desktop、sourcetree等
+所以我们这一节就是要将一些开发所使用的客户端：GitKraken、sourcetree等，不过你当然可以使用IDE的插件来进行推代码，反正总之能推上代码，有绿点就行。
 
 
 
