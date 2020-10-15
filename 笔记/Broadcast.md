@@ -36,11 +36,9 @@ public class MyBroadcastReceiver extends BroadcastReceiver{
 }
 ```
 
-
-
 注册接收器：
 
-
+ 
 
 * 三种方式发送
 
