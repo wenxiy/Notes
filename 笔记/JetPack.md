@@ -23,3 +23,29 @@
   * 导航图：获取导航XML信息的所有资源
   * Navhost：导航图中的空白容器，显示Fragment目标
   * Navcontroller：在Navhost中管理导航对象，安排目标交换等。
+
+Demo分析：
+
+1. 首先建立导航图
+2. 向Activity添加NavHost
+3. 向导航图添加目的地
+
+预备工作：添加依赖
+
+```xml
+ 	//添加Kotlin中Jetpack的Navigition框架
+    def nav_version = "2.3.1"
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+    androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
+```
+
+1. 建立导航图
+
+在res文件夹下点击New Android resource File，选择type为Navigition 
+
+name为nav_graph.
+
+在
+
+2. 
