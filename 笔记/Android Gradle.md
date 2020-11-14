@@ -1,4 +1,4 @@
-## Android Gradle 
+## Android Gradle解析 
 
 ### Gradle入门
 
@@ -55,5 +55,61 @@ OS:           Linux 4.15.0-30deepin-generic amd64
 
 ```
 
+#### Warpper脚本
 
+* 定义：
 
+  * Wraaper是对Gradle包装的一个脚本。可以通过此来控制Gradle的版本不一致的问题。
+
+* 使用
+
+  * 在使用shell命令来自动生产Wrapper的目录文件:
+
+  ```
+  gradle wrapper
+  ```
+
+  在执行此命令以后生成如下文件：
+
+  gradle-wrapper.jar（Gradle业务逻辑的具体实现的jar包）
+
+  gradle-wrapper.properties（Gradle配置文件，来配置哪个版本的Gradle）
+
+  gradlew（linux下执行Gradle的脚本）
+
+  gradlew.bat（Windows下执行Gradle的脚本）
+
+  在协作开发的时候去提交jar包以去让其他开发人员去配置使用
+
+* 如何通过Warpper指定版本
+
+  * 通过gradle--wrapper--gradle-version命令来指定使用的Gradle版本
+  * 通过gradle--wrapper--gradle-distribution-url 来指定下载Gradle发行版的url
+  * 如果不采用任何参数--gradle wrapper不添加参数，就是来用当前的gradle作为wrapper的gradle version
+
+* 详解gradle--Wrapper.properties
+
+  在gradle--Wrapper.properties中有很多字段，通过对字段的定义达到一种配置的目的
+
+  * distributionBase:下载的Gradle压缩包解压的主目录
+  * distributionPath:压缩包路径
+  * zipStoreBase:放aip压缩包
+  * ........Path:路径
+  * distributionUr:下载Gradle的版本地址，可以改为国内镜像。
+
+#### Groovy基础
+
+* 字符串：单引号只是字符串，双引号是运算符但也可以表示字符串。例如：
+
+  ```groovy
+  task printStringClass<<{
+      def name = "张三"
+      println '单引号不能表示计算${name}'
+      println "双引号可以表示计算${name}"
+  }
+  输出：
+  单引号不能表示计算${name}
+  双引号可以表示计算张三
+  ```
+
+* 集合：
