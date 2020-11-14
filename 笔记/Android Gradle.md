@@ -99,11 +99,13 @@ OS:           Linux 4.15.0-30deepin-generic amd64
 
 #### Groovy基础
 
+在这里Groovy有很强大的类型推导机制，对于不同的类型通过标识式就可以进行推导
+
 * 字符串：单引号只是字符串，双引号是运算符但也可以表示字符串。例如：
 
   ```groovy
   task printStringClass<<{
-      def name = "张三"
+      def name = "张三" //标识符是”“或者'
       println '单引号不能表示计算${name}'
       println "双引号可以表示计算${name}"
   }
@@ -112,4 +114,113 @@ OS:           Linux 4.15.0-30deepin-generic amd64
   双引号可以表示计算张三
   ```
 
-* 集合：
+* 集合：对于集合来说，标识符是[]
+
+  * list:
+
+    ```groovy
+    task printlist <<{
+        def numlist=[1,2,3,4,5] //numlist = new ArrayList<>();
+        println numlist.getClass.name();
+    }
+    ```
+
+    遍历：类似于数组遍历
+
+    ```groovy
+    numList[1] //第二个元素
+    numList[2] //第三个元素
+    numList[1..4] //第二个到第四个元素
+    numList[-1] //右侧数第一个
+    ```
+
+    迭代：接收闭包参数的each方法
+
+    ```groovy
+    task printlist <<{
+        def numlist=[1,2,3,4,5] //numlist = new ArrayList<>();
+        println numlist.getClass.name();
+        println numList[1] //第二个元素
+    	println numList[2] //第三个元素
+    	println numList[1..4] //第二个到第四个元素
+    	println numList[-1] //右侧数第一个
+    	numList.each{
+            println it //出现it关键字
+    	}
+    }
+    ```
+
+* Map
+
+  * 键值对应定义：
+
+  ```groovy
+  task printlnMap<< {
+      def map =['K':V,'K1':V1]
+      println map.getClass().name
+  }
+  ```
+
+  * 遍历：
+
+  ```groovy
+  map.K1或者map[k1]
+  ```
+
+  * 迭代
+
+  ```groovy
+  map.each{
+      println "${it.key},{it.value}"
+  }
+  ```
+
+* 方法：
+
+  * 在使用方法中参数括号是可以省略的，但定义方法中基本都需要写，除非传递的是闭包类型
+  * 在方法中return是可以不写的
+  * 在方法中代码块是可以传递的
+
+  ```groovy
+  task test<<{
+      def add1 = method 1,2
+  }
+  def method(int a,int b){
+      if (a>b){ //在Kotlin中if省略return和这个不同 if代表的是一个表达式 所以可以省略return
+          a//而这里是代表整体的return都是可以不写的
+      }
+      if (a<b){
+          b
+      }
+  }
+  ```
+
+  最后利用./gradlew命令来执行task
+
+  关于最后一点，传递代码块有必要说一下，代码块传递就是闭包的传递，是传递的代码块。在Groovy中定义了两种规则：
+
+  * 如果使用一个方法，并且这个方法最后一个参数是闭包，那么可以将这个闭包放到方法的外面
+
+  ```groovy
+  numlist.each (){
+      println it //这个花括号里面的代码就是代码块就是闭包
+  }
+  初始写法：
+  numlist.each({println it})
+  ```
+
+  * 如果使用一个方法，并且这个方法最后一个参数是闭包，那么可以将这个方法括号省略
+
+  ```groovy
+  numlist.each{
+      println it
+  }
+  ```
+
+  说完了在方法中传递代码块（闭包），那么我们系统的说一下闭包。
+
+* 闭包
+
+  * 什么是闭包？闭包有两方面构成：一段代码块和引用了自由变量的函数。对于Groovy中我们常用的就是代码块。
+  * 如何使用？
+
