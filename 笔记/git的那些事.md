@@ -107,6 +107,32 @@ git push origin master
 
 ### 关于推代码的那些事（一）
 
+​	因为最近在开发匣子3.0，所以难免会用到Fork与Pull request的事情来进行开发。而且我想去学习一下关于分支管理等开发的一些规范性问题，所以我们先知道git的工作流程：
+
+​	git是可以进行多重分支开发的，什么意思呢？也就是说git中存在不同的分支，并且可以切换到不同的分支进行开发与推代码。例如在github上大型项目总是有master与develop分支，master分支是用于大版本迭代时所使用发布分支，而develop是开发者所推代码的分支。而git分支的本质就是一个指向commit对象的指针。
+
+例如git add是将文件添加到缓存，也就是将快照的内容写入了缓存，而git commit是执行记录缓存区的快照。
+
+而利用git reset HEAD则是取消已经缓存的内容。
+
+​	那么git是如何知道你是在哪个分支上工作的？ git中保存了一个名为HEAD的指针，HEAD指针指向正在工作的本地分支的指针 利用git checkout命令来进行操作HEAD指针。 git branch命令来查看当前所在的分支 
+
+git checkout  <分支名字>来切换分支。
+
+![](https://s3.ax1x.com/2020/11/15/DivGss.png)
+
+f30ab是最后一次commit后的即将上传的快照，通过HEAD指向master分支可以在master分支提交
+
+在执行git checkout testing时指向了testing分支（当然这些都是本地分支）
+
+​	我们如何将本地dev分支的代码推到remote的dev分支？
+
+```git
+git push origin dev:dev  
+```
+
+:前面的dev表示本地分支dev 冒号后面的代表
+
 ### 关于推代码的那些事（二）
 
 ### 什么？居然有人用客户端来推代码？这不是歧视命令行？~~不会吧不会吧，2102年了还有人歧视客户端？~~
