@@ -20,4 +20,4 @@ String s1 = new String("student");
 
 s1与s2的字符序列是相同的，但是不是相同的引用，所以==运算时为false（==运算符比较的是引用）
 
-但是如果使用equal是true 因为equal比较的是字符序列。
+但是如果使用equal是true 因为equal比较的是字符序列。11 
