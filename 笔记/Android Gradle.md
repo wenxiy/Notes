@@ -224,3 +224,41 @@ OS:           Linux 4.15.0-30deepin-generic amd64
   * 什么是闭包？闭包有两方面构成：一段代码块和引用了自由变量的函数。对于Groovy中我们常用的就是代码块。
   * 如何使用？
 
+  1. 当闭包只有一个参数的时候，则记为it变量，当具有多个变量的时候，就需要一一列出。
+
+  ```groovy
+  def eachMap(closure){
+      def map1  {"name":"张三","age":18}
+      map1.each{
+          closure(it.key.it.value)//Closure是groovy.lang下的一个抽象类
+      }
+  }
+  ```
+
+  * 闭包中最重要的特性：委托
+
+  1. 什么是委托？
+
+  2. 如何体现委托
+
+     什么是委托？委托模式中，有两个对象参与处理同一个请求，接受请求的对象将请求委托给另一个对象来处理。这也就是代理模式
+
+     如何体现委托？
+
+     在闭包（Closure）中有三个属性thisObject、owner、delegate
+
+     在默认情况下，先调用thisObject来处理闭包中的方法，而delegate和owner是对等，但是owner优先级高于delegate
+
+     示例代码分析：
+
+     ```
+     task helloDelegate<<1{
+         new Delegate().test{
+             
+         }
+     }
+     ```
+
+     
+
+  
