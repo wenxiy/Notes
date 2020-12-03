@@ -6,6 +6,18 @@
 
 #### MVVM：
 
+Model:实体类，获取业务数据模型，通过数据库或者网络来进行数据操作
+
+View：主要进行视图控件的一些初始设置，没有数据逻辑操作
+
+ViewModel：连接View与Model的中间桥梁，ViewModel与Model直接交互。处理逻辑后通过DataBinding来反应到用户界面。
+
+所以什么是DataBinding：用来实现MVVM的一种工具。实现视图与数据的双向绑定。
+
+如何使用DataBinding来实现MVVM
+
+首先我们建立一个Demo
+
 
 
 #### Navigition(导航组件)：
