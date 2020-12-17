@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">test</string>
+    <string name="register_name">请输入账号</string>
+    <string name="register_password">请输入密码</string>
+    <string name="register_forget">忘记密码？</string>
+    <string name="register_go">GO</string>
+    <string name="regiter_banner">登录智慧农场</string>
+</resources>
