@@ -2,13 +2,11 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.MainActivity">
+    tools:context=".Login.iokit.ui.LoginActivity">
 
     <data>
 
-        <variable
-            name="viewmodel"
-            type="com.example.test.ui.DataViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -69,7 +67,6 @@
             android:id="@+id/register_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{viewmodel.name}"
             android:ems="17"
             android:inputType="textPersonName"
             android:hint="@string/register_name"
@@ -88,7 +85,6 @@
         <EditText
             android:id="@+id/editTextTextPassword"
             android:layout_width="wrap_content"
-            android:text="@{viewmodel.password}"
             android:layout_height="wrap_content"
             android:hint="@string/register_password"
             android:ems="17"

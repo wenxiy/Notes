@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/first_icon"
+        android:icon="@drawable/wenduji"
+        android:title="@string/first_enter" />
+    <item
+        android:id="@+id/second_icon"
+        android:icon="@drawable/wenduji"
+        android:title="@string/second_enter" />
+    <item
+        android:id="@+id/third_icon"
+        android:icon="@drawable/huanjin"
+        android:title="@string/third_enter" />
+    <item
+        android:id="@+id/fourth_icon"
+        android:icon="@drawable/shuju"
+        android:title="@string/fourth_enter" />
+    <item
+        android:id="@+id/five_icon"
+        android:icon="@drawable/shenchan"
+        android:title="@string/five_enter" />
+</menu>

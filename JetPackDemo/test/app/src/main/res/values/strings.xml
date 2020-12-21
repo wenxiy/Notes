@@ -4,5 +4,10 @@
     <string name="register_password">请输入密码</string>
     <string name="register_forget">忘记密码？</string>
     <string name="register_go">GO</string>
-    <string name="regiter_banner">登录智慧农场</string>
+    <string name="regiter_banner">登录智慧农村</string>
+    <string name="first_enter">首页</string>
+    <string name="second_enter">农场规划</string>
+    <string name="third_enter">环境检测</string>
+    <string name="fourth_enter">数据分析</string>
+    <string name="five_enter">生产管理</string>
 </resources>
